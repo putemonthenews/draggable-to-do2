@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="icon" type="image/png" sizes="32x32" href="./favicon.ico" />
+    <link rel="stylesheet" href="./style.css" />
+    <title>Todo.app</title>
+  </head>
+
+  <body>
+    <header>
+      <nav>
+        <span>todo.app</span>
+        <span class="toggle-theme">Выбрать тему</span>
+        <div class="themes disable-pointer">
+          <div class="theme"></div>
+          <div class="theme"></div>
+          <div class="theme"></div>
+          <div class="theme"></div>
+          <div class="theme"></div>
+          <div class="theme"></div>
+          <div class="theme"></div>
+        </div>
+      </nav>
+    </header>
+    <main id="board">
+      <div class="card" data-todo-name="todo">
+        <div class="card-header">
+          <h2>Задача</h2>
+          <button id="open-modal">Add</button>
+        </div>
+        <ul id="todo-list-container">
+          <!-- Todo list will be rendered from JavaScript -->
+        </ul>
+      </div>
+      <div class="card" data-todo-name="in_progress">
+        <div class="card-header">
+          <h2>В прогрессе</h2>
+        </div>
+        <ul id="inprogress-list-container">
+          <!-- In Progress list will be rendered from JavaScript -->
+        </ul>
+      </div>
+      <div class="card completeCard" data-todo-name="done">
+        <div class="card-header">
+          <h2>Выполнено</h2>
+        </div>
+        <ul id="done-list-container">
+          <!-- Done list will be rendered from JavaScript -->
+        </ul>
+      </div>
+      <div class="card incompleteCard" data-todo-name="incomplete">
+        <div class="card-header">
+          <h2>Невыполнено</h2>
+        </div>
+        <ul id="incomplete-list-container">
+          <!-- Incomplete list will be rendered from JavaScript -->
+        </ul>
+      </div>
+      <div class="card garbageCanCard" data-todo-name="trash">
+        <div class="card-header">
+          <h2>Корзина</h2>
+          <button id="clean-trash">Очистить</button>
+        </div>
+        <ul id="trash-list-container">
+          <!-- trash list will be rendered from JavaScript -->
+        </ul>
+      </div>
+      
+
+      <!-- Modal -->
+      <div class="modal disable-pointer">
+        <div class="content">
+          <form>
+            <div class="form-group">
+              <label for="title">Title</label>
+              <input
+                required
+                minlength="3"
+                type="text"
+                id="title"
+                name="title"
+                placeholder="Title..."
+              />
+              <p class="error" id="title-error">Требуется название.</p>
+            </div>
+            <div class="form-group">
+              <label for="desc">Описание</label>
+              <textarea
+                minlength="5"
+                name="desc"
+                id="desc"
+                cols="30"
+                rows="5"
+                placeholder="Todo description.."
+                value=""
+              ></textarea>
+              <p class="error" id="desc-error">Description is required</p>
+            </div>
+            <div class="form-group">
+              <label for="remainingTime">Время</label>
+              <div class="timer__wrapper">
+                
+                  <input type="number" placeholder="00 ч" min="0" max="24" class="timer__input timer__hours">
+                <input type="number" placeholder="00 мин" min="0" max="60"  class="timer__input timer__minutes">
+                <input type="number" placeholder="00 сек" min="0" max="60"  class="timer__input timer__seconds">
+                
+              </div>
+              <p class="error" id="desc-error">Description is required</p>
+            </div>
+            <div class="form-control">
+              <button type="submit" id="btn-add">Add</button>
+              <button id="btn-close">Close</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+
+      <!-- <div class="modalEdit">
+        <div class="content">
+          <form>
+            <div class="form-group">
+              <label for="titleEdit">Title</label>
+              <input
+                required
+                minlength="3"
+                type="text"
+                id="titleEdit"
+                name="titleEdit"
+                placeholder="Title..."
+              />
+              <p class="error" id="title-errorEdit">Требуется название.</p>
+            </div>
+            <div class="form-group">
+              <label for="desc"></label>
+              <textarea
+                minlength="5"
+                name="descEdit"
+                id="descEdit"
+                cols="30"
+                rows="5"
+                placeholder="Todo description.."
+                value=""
+              ></textarea>
+              <p class="error" id="desc-errorEdit">Description is required</p>
+            </div>
+            
+            <div class="form-control">
+              <button type="submit" id="btn-edit">Edit</button>
+              <button class="btn-close-edit">Close</button>
+            </div>
+          </form>
+        </div>
+      </div> -->
+    </main>
+  </body>
+  <script src="./app.js"></script>
+</html>

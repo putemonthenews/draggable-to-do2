@@ -289,3 +289,7 @@
     pointer-events: all;
     opacity: 1;
   } */
+
+    .card-p {
+        max-width: 235px;
+    }

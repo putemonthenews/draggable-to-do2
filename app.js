@@ -269,6 +269,7 @@ function createTodoHtmlNode(todo) {
   span.style.backgroundColor = STATUS_COLOR[todo.status]
 
   const p = document.createElement("p")
+  p.classList.add('card-p')
   p.innerText = todo.desc
 
 
